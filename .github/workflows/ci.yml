@@ -1,0 +1,30 @@
+---
+
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  Format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile
+        run: docker-compose build
+
+      - name: Format
+        run: docker-compose run payments format
+
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile
+        run: docker-compose build
+
+      - name: Test
+        run: docker-compose run payments test

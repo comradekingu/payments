@@ -1,5 +1,10 @@
 defmodule PaymentsWeb.Telemetry do
+  @moduledoc """
+  Tracks and records metrics for the web server.
+  """
+
   use Supervisor
+
   import Telemetry.Metrics
 
   def start_link(arg) do

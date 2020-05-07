@@ -1,4 +1,6 @@
 defmodule PaymentsWeb.PageLive do
+  @moduledoc false
+
   use PaymentsWeb, :live_view
 
   @impl true

@@ -6,6 +6,7 @@ on: [pull_request, push]
 
 jobs:
   Format:
+    name: Format
     runs-on: ubuntu-latest
 
     steps:
@@ -16,6 +17,20 @@ jobs:
 
       - name: Format
         run: docker-compose run payments format
+
+  Lint_Credo:
+    name: Lint (Credo)
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile
+        run: docker-compose build
+
+      - name: Format
+        run: docker-compose run payments credo
+
 
   Test:
     runs-on: ubuntu-latest

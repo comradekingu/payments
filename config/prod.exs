@@ -16,6 +16,7 @@ config :payments, PaymentsWeb.Endpoint,
     port: 80,
     transport_options: [socket_opts: [:inet6]]
   ],
+  gzip: true,
   server: true
 
 # Do not print debug messages in production

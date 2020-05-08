@@ -10,10 +10,6 @@ defmodule PaymentsWeb.Endpoint do
     signing_salt: "b+BFY1eT"
   ]
 
-  socket "/socket", PaymentsWeb.UserSocket,
-    websocket: true,
-    longpoll: false
-
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
@@ -23,8 +19,8 @@ defmodule PaymentsWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :payments,
-    gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    gzip: Keyword.get(Application.get_env(:payments, PaymentsWeb.Endpoint), :gzip, false),
+    only: ~w(fonts images script style favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

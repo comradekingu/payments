@@ -1,0 +1,39 @@
+html {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  margin: 0;
+  min-height: 100%;
+  min-width: 100%;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  margin: 0;
+  padding: 0;
+}
+
+body > div:first-child {
+  flex: 1 0 auto;
+  padding: 0 1rem;
+}
+
+footer {
+  background-color: var(--secondary-bg-color);
+  display: flex;
+  flex-flow: wrap-reverse;
+  justify-content: space-between;
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+
+footer p {
+  color: var(--secondary-fg-color);
+  font-family: var(--ui-font);
+  font-size: 0.6rem;
+  line-height: 3em;
+  margin: 0;
+}

@@ -36,7 +36,7 @@ defmodule Payments.Projects do
   """
   def create(name, attrs \\ %{}) do
     %__MODULE__{}
-    |> changeset(attrs)
+    |> changeset(Map.put(attrs, :id, name))
     |> Repo.insert()
   end
 

@@ -1,0 +1,89 @@
+html {
+  font-family: var(--copy-font);
+  font-size: 5.625vw;
+  font-weight: 400;
+  word-spacing: -0.05em;
+}
+
+@media (min-width: 320px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media print {
+  html {
+    font-size: 14px;
+  }
+}
+
+a {
+  color: var(--accent-color);
+  opacity: 0.8;
+  text-decoration-skip: ink;
+  transition: opacity 250ms ease;
+}
+
+a:hover,
+a:focus {
+  opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  line-height: 1.2em;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+h1 {
+  line-height: 1em;
+}
+
+h3,
+h4,
+h5 {
+  opacity: 0.8;
+}
+
+h6 {
+  opacity: 0.67;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+header h1 + h2 {
+  font-family: var(--ui-font);
+  font-size: 1.2rem;
+  font-weight: normal;
+  margin-top: 0.25em;
+  opacity: 0.5;
+}
+
+header h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+header h2 + h3 {
+  font-family: var(--ui-font);
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: -1.5em;
+  margin-bottom: 1em;
+  opacity: 0.5;
+}

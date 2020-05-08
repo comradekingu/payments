@@ -10,11 +10,11 @@ services:
     ports:
       - "4000:4000"
     volumes:
-      - ./assets:/app/assets
-      - ./config:/app/config
-      - ./lib:/app/lib
-      - ./priv:/app/priv
-      - ./test:/app/test
+      - ./assets:/opt/app/assets
+      - ./config:/opt/app/config
+      - ./lib:/opt/app/lib
+      - ./priv:/opt/app/priv
+      - ./test:/opt/app/test
     command: do ecto.create, phx.server
     working_dir: /opt/app
     depends_on:

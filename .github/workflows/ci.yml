@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Compile
         run: docker-compose build
@@ -23,20 +24,41 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Compile
         run: docker-compose build
 
-      - name: Format
-        run: docker-compose run payments credo
+      - name: Lint
+        run: docker-compose run payments credo --all
 
+  Lint_Dialyzer:
+    name: Lint (Dialyzer)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cache
+        uses: actions/cache@v1
+        with:
+          path: priv/plts
+          key: dialyzer
+
+      - name: Compile
+        run: docker-compose build
+
+      - name: Lint
+        run: docker-compose run payments dialyzer
 
   Test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Compile
         run: docker-compose build

@@ -10,7 +10,11 @@ defmodule Payments.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      dialyzer: [
+        plt_add_deps: :transitive,
+        plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
+      ]
     ]
   end
 
@@ -46,6 +50,7 @@ defmodule Payments.MixProject do
       {:plug_cowboy, "~> 2.0"},
 
       {:credo, "~> 1.4", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.0", only: :dev, runtime: false},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
 
       {:floki, ">= 0.0.0", only: :test}

@@ -53,6 +53,7 @@ defmodule Payments.MixProject do
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
 
+      {:ex_machina, "~> 2.4", only: :test},
       {:floki, ">= 0.0.0", only: :test}
     ]
   end

@@ -3,56 +3,100 @@ defmodule Payments.Projects do
   Controls everything we can do with a Project.
   """
 
-  use Ecto.Schema
-
-  import Ecto.Changeset
-
+  alias Payments.Projects.Project
   alias Payments.Repo
 
-  @primary_key {:id, :string, autogenerate: false}
-  @foreign_key_type :string
+  @doc """
+  Returns the list of projects.
 
-  schema "projects" do
-    field :private, :boolean, default: true
+  ## Examples
 
-    timestamps()
-  end
+      iex> list_projects()
+      [%Project{}, ...]
 
-  @doc false
-  def changeset(project, attrs) do
-    project
-    |> cast(attrs, [:private])
+  """
+  def list_projects do
+    Repo.all(Project)
   end
 
   @doc """
-  Fetches a single Project.
+  Gets a single project.
+
+  Raises `Ecto.NoResultsError` if the Project does not exist.
+
+  ## Examples
+
+      iex> get_project!(123)
+      %Project{}
+
+      iex> get_project!(456)
+      ** (Ecto.NoResultsError)
+
   """
-  def get(name) do
-    Repo.one(__MODULE__, name)
-  end
+  def get_project!(id), do: Repo.get!(Project, id)
 
   @doc """
-  Creates a new Project.
+  Creates a project.
+
+  ## Examples
+
+      iex> create_project(%{field: value})
+      {:ok, %Project{}}
+
+      iex> create_project(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
   """
-  def create(name, attrs \\ %{}) do
-    %__MODULE__{}
-    |> changeset(Map.put(attrs, :id, name))
+  def create_project(attrs \\ %{}) do
+    %Project{}
+    |> Project.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a Project.
+  Updates a project.
+
+  ## Examples
+
+      iex> update_project(project, %{field: new_value})
+      {:ok, %Project{}}
+
+      iex> update_project(project, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
   """
-  def update(project, attrs) do
+  def update_project(%Project{} = project, attrs) do
     project
-    |> changeset(attrs)
+    |> Project.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a Project.
+  Deletes a project.
+
+  ## Examples
+
+      iex> delete_project(project)
+      {:ok, %Project{}}
+
+      iex> delete_project(project)
+      {:error, %Ecto.Changeset{}}
+
   """
-  def delete(project) do
+  def delete_project(%Project{} = project) do
     Repo.delete(project)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking project changes.
+
+  ## Examples
+
+      iex> change_project(project)
+      %Ecto.Changeset{data: %Project{}}
+
+  """
+  def change_project(%Project{} = project, attrs \\ %{}) do
+    Project.changeset(project, attrs)
   end
 end

@@ -1,0 +1,77 @@
+.content {
+  margin: 4vh auto;
+  max-width: 80ch;
+  text-align: center;
+}
+
+.content > *:first-child {
+  margin-top: 0;
+}
+
+.content > *:last-child {
+  margin-bottom: 0;
+}
+
+.button {
+  background-color: #3689e6;
+  border-radius: 3px;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 1rem;
+  outline: none;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  transition: opacity 200ms ease;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #64baff;
+  box-shadow: 0 2px 3px -1px rgba(30, 51, 134, 0.3), 0 5px 10px -2px rgba(89, 159, 239, 0.5);
+}
+
+.projects {
+  border-radius: 3px;
+  border: 1px solid #999;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem auto;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+}
+
+.project {
+  background-color: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1rem 2rem;
+}
+
+.project:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.project .name {
+  display: block;
+}
+
+.project .private {
+  display: block;
+  font-size: 0.7rem;
+}
+
+.project a {
+  color: inherit;
+  text-decoration: none;
+}

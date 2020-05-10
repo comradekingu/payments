@@ -18,6 +18,8 @@ defmodule PaymentsWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+
+    resources "/projects", ProjectController
   end
 
   # Other scopes may use custom stacks.

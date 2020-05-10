@@ -19,5 +19,4 @@ secret_key_base =
     You can generate one by calling: mix phx.gen.secret
     """
 
-config :payments, PaymentsWeb.Endpoint,
-  secret_key_base: secret_key_base
+config :payments, PaymentsWeb.Endpoint, secret_key_base: secret_key_base

@@ -19,8 +19,7 @@ config :payments, PaymentsWeb.Endpoint,
   pubsub_server: Payments.PubSub,
   live_view: [signing_salt: "cs7bvIHa"]
 
-config :payments, PaymentsWeb.Gettext,
-  default_locale: "en"
+config :payments, PaymentsWeb.Gettext, default_locale: "en"
 
 # Configures Elixir's Logger
 config :logger, :console,

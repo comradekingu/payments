@@ -1,0 +1,32 @@
+form {
+  display: block;
+}
+
+form .fieldgroup {
+  display: block;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+form .fieldgroup label {
+  display: block;
+}
+
+form .fieldgroup input {
+  display: block;
+}
+
+form .fieldgroup span {
+  margin: 0;
+  padding: 0;
+  color: #f12d0b;
+  font-size: 0.8rem;
+}
+
+form .actions {
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

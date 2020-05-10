@@ -1,0 +1,31 @@
+<div class="content">
+  <h1>Projects</h1>
+
+  <div>
+    <%= link "New Project", to: Routes.project_path(@conn, :new), class: "button" %>
+  </div>
+
+<%= if length(@projects) > 0 do %>
+  <ul class="projects">
+<%= for project <- @projects do %>
+    <li class="project">
+      <a href="<%= Routes.project_path(@conn, :show, project) %>">
+        <span class="name"><%= project.id %></span>
+        <span class="private">
+          <%= if project.private do %>
+            private
+          <% else %>
+            public
+          <% end %>
+        </span>
+      </a>
+
+      <div>
+        <span><%= link "Edit", to: Routes.project_path(@conn, :edit, project) %></span>
+        <span><%= link "Delete", to: Routes.project_path(@conn, :delete, project), method: :delete %></span>
+      </div>
+    </li>
+<% end %>
+  </ul>
+</div>
+<% end %>

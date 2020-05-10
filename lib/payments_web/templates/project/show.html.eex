@@ -1,0 +1,18 @@
+<div class="content">
+  <h1><%= @project.id %></h1>
+
+  <p>
+    <%= if @project.private do %>
+      This project is private and nobody aside from you and admins will be able
+      to see transactions.
+    <% else %>
+      This project is public. Everyone will see transactions and where the money
+      goes.
+    <% end %>
+  </p>
+
+  <p>
+    <%= link "Edit", to: Routes.project_path(@conn, :edit, @project), class: "button" %>
+    <%= link "Delete", to: Routes.project_path(@conn, :delete, @project), method: :delete, class: "button" %>
+  </p>
+</div>

@@ -3,7 +3,7 @@ defmodule Payments.Repo.Migrations.CreateProjects do
 
   def change do
     create table(:projects, primary_key: false) do
-      add :id, :string, size: 100, primary_key: true
+      add :id, :string, size: 255, primary_key: true
 
       add :private, :boolean, default: true
 

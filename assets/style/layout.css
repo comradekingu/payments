@@ -16,6 +16,7 @@ body {
   padding: 0;
 }
 
+body > main,
 body > div:first-child {
   flex: 1 0 auto;
   padding: 0 1rem;

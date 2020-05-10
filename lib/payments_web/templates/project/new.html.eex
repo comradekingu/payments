@@ -1,0 +1,5 @@
+<div class="content">
+  <h1>Create a New Project</h1>
+
+  <%= render "form.html", Map.put(assigns, :action, Routes.project_path(@conn, :create)) %>
+</div>

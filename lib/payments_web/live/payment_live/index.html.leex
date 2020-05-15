@@ -1,0 +1,33 @@
+<div class="content">
+  <h1>Payments</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= for payment <- @payments do %>
+        <tr id="payment-<%= payment.id %>">
+          <td><%= payment.product_id %></td>
+          <td><%= payment.amount %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <nav>
+    <%= if @page > 1 do %>
+      <a href="#" phx-click="page" phx-value="<%= @page - 1 %>">Previous</a>
+    <% end %>
+
+    <strong><%= @page %></strong>
+
+    <%= if @page < @max_page do %>
+      <a href="#" phx-click="page" phx-value="<%= @page + 1 %>">Next</a>
+    <% end %>
+  </nav>
+</div>

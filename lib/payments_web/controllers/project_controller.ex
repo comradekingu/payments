@@ -1,21 +1,20 @@
 defmodule PaymentsWeb.ProjectController do
   use PaymentsWeb, :controller
 
-  alias Payments.Projects
-  alias Payments.Projects.Project
+  alias Payments.Project
 
   def index(conn, _params) do
-    projects = Projects.list_projects()
+    projects = Project.list_projects()
     render(conn, "index.html", projects: projects)
   end
 
   def new(conn, _params) do
-    changeset = Projects.change_project(%Project{})
+    changeset = Project.change_project(%Project{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"project" => project_params}) do
-    case Projects.create_project(project_params) do
+    case Project.create_project(project_params) do
       {:ok, project} ->
         conn
         |> put_flash(:info, "Project created successfully.")
@@ -27,20 +26,20 @@ defmodule PaymentsWeb.ProjectController do
   end
 
   def show(conn, %{"id" => id}) do
-    project = Projects.get_project!(id)
+    project = Project.get_project!(id)
     render(conn, "show.html", project: project)
   end
 
   def edit(conn, %{"id" => id}) do
-    project = Projects.get_project!(id)
-    changeset = Projects.change_project(project)
+    project = Project.get_project!(id)
+    changeset = Project.change_project(project)
     render(conn, "edit.html", project: project, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "project" => project_params}) do
-    project = Projects.get_project!(id)
+    project = Project.get_project!(id)
 
-    case Projects.update_project(project, project_params) do
+    case Project.update_project(project, project_params) do
       {:ok, project} ->
         conn
         |> put_flash(:info, "Project updated successfully.")
@@ -52,8 +51,8 @@ defmodule PaymentsWeb.ProjectController do
   end
 
   def delete(conn, %{"id" => id}) do
-    project = Projects.get_project!(id)
-    {:ok, _project} = Projects.delete_project(project)
+    project = Project.get_project!(id)
+    {:ok, _project} = Project.delete_project(project)
 
     conn
     |> put_flash(:info, "Project deleted successfully.")

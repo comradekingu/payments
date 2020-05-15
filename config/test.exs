@@ -20,3 +20,7 @@ config :payments, PaymentsWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+config :stripity_stripe,
+  api_key: "sk_test_JO1Q2KYQW3tCYXdhGlw9VHsG",
+  public_key: "pk_test_MrafeP8AsKSMKCZFfHmp6Upc"

@@ -1,0 +1,33 @@
+<div class="content">
+  <h2><%= @project.id %></h2>
+
+  <%= if @payment_data do %>
+    <meta name="payment_service" content="stripe">
+    <meta name="stripe_public_key" content="<%= @stripe_public_key %>">
+
+    <form phx-submit="process">
+      <input
+        type="hidden"
+        name="client_secret"
+        value="<%= @payment_data.client_secret %>"
+      >
+
+      <div id="card-element" />
+
+      <p id="card-errors" />
+
+      <button type="submit" class="button">Pay</button>
+    </form>
+  <% else %>
+    <form phx-submit="initiate">
+      <label for="amount">Amount</label>
+      <input
+        type="number"
+        name="amount"
+        value="<%= @amount %>"
+      >
+
+      <button type="submit" class="button">Pay</button>
+    </form>
+  <% end %>
+</div>

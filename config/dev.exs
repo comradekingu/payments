@@ -74,3 +74,7 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :stripity_stripe,
+  api_key: "sk_test_JO1Q2KYQW3tCYXdhGlw9VHsG",
+  public_key: "pk_test_MrafeP8AsKSMKCZFfHmp6Upc"

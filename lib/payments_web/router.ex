@@ -19,6 +19,10 @@ defmodule PaymentsWeb.Router do
 
     live "/", PageLive, :index
 
+    live "/payments", PaymentLive.Index, :index
+    live "/payments/:id", PaymentLive.Show, :show
+    live "/payments/new/:project_id", PaymentLive.New, :new
+
     resources "/projects", ProjectController
   end
 

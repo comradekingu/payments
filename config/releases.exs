@@ -20,3 +20,21 @@ secret_key_base =
     """
 
 config :payments, PaymentsWeb.Endpoint, secret_key_base: secret_key_base
+
+stripe_secret_key =
+  System.get_env("STRIPE_SECRET_KEY") ||
+    raise """
+    environment variable STRIPE_SECRET_KEY is missing.
+    You can view yours at https://dashboard.stripe.com/apikeys
+    """
+
+stripe_public_key =
+  System.get_env("STRIPE_PUBLIC_KEY") ||
+    raise """
+    environment variable STRIPE_PUBLIC_KEY is missing.
+    You can view yours at https://dashboard.stripe.com/apikeys
+    """
+
+config :stripity_stripe,
+  api_key: stripe_secret_key,
+  public_key: stripe_public_key
